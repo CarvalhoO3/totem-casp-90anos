@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Totem Interativo - CASP</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+
+
+    <style>
+
+        :root { --casp-blue: #003366; --casp-orange: #F37021; }
+
+        body { font-family: 'Montserrat', sans-serif; background-color: #F4F7F9; color: var(--casp-blue); margin: 0; padding: 0; overflow: hidden; }
+
+
+
+        .header-gradient {
+
+            background: linear-gradient(135deg, var(--casp-blue) 0%, #002244 100%);
+
+            height: 35vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+        }
+
+
+
+        .card-menu {
+
+            background: white;
+
+            border-radius: 1.5rem;
+
+            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.1);
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .card-menu:active {
+
+            transform: scale(0.95);
+
+            border: 2px solid var(--casp-orange);
+
+        }
+
+
+
+        .page {
+
+            display: none;
+
+            height: 100vh;
+
+            width: 100%;
+
+            flex-direction: column;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .page.active {
+
+            display: flex;
+
+            animation: fadeIn 0.4s ease;
+
+        }
+
+
+
+        @keyframes fadeIn {
+
+            from { opacity: 0; }
+
+            to { opacity: 1; }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <!-- ========================================= -->
+
+    <!-- HOME                                      -->
+
+    <!-- ========================================= -->
+
+    <div id="home" class="page active">
+
+        <header class="header-gradient text-white px-6">
+
+            <div class="bg-white p-4 rounded-xl mb-4 shadow-lg">
+
+                <img src="selo90anos.png" alt="CASP 90 Anos" class="w-full h-auto object-cover">
+
+            </div>
+
+            <h1 class="text-xl md:text-3xl font-extrabold uppercase text-center">Tradição que alimenta o futuro</h1>
+
+        </header>
+
+
+
+        <main class="max-w-4xl w-full mx-auto px-6 py-10">
+
+            <p class="text-center text-blue-900 font-bold uppercase tracking-[0.3em] mb-10 text-xs">Selecione uma opção abaixo</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <button onclick="navigateTo('a-casp')" class="card-menu p-8 flex items-center space-x-6 text-left">
+
+                    <div class="bg-blue-50 p-4 rounded-2xl text-blue-900"><i data-lucide="building"></i></div>
+
+                    <div><h2 class="font-bold uppercase text-sm">A CASP</h2><p class="text-gray-400 text-xs">Nossa História</p></div>
+
+                </button>
+
+
+
+                <button onclick="navigateTo('Catalogos')" class="card-menu p-8 flex items-center space-x-6 text-left">
+
+                    <div class="bg-blue-50 p-4 rounded-2xl text-blue-900"><i data-lucide="settings"></i></div>
+
+                    <div><h2 class="font-bold uppercase text-sm">Catálogos</h2><p class="text-gray-500 text-xs">Nossos Produtos</p></div>
+
+                </button>
+
+
+
+                <button onclick="navigateTo('lancamentos')" class="card-menu p-8 flex items-center space-x-6 text-left">
+
+                    <div class="bg-blue-50 p-4 rounded-2xl text-blue-900"><i data-lucide="rocket"></i></div>
+
+                    <div><h2 class="font-bold uppercase text-sm">Lançamentos</h2><p class="text-gray-500 text-xs">Nossos novos projetos</p></div>
+
+                </button>
+
+
+
+                <button onclick="navigateTo('contato')" class="card-menu p-8 flex items-center space-x-6 text-left">
+
+                    <div class="bg-blue-50 p-4 rounded-2xl text-blue-900"><i data-lucide="message-square"></i></div>
+
+                    <div><h2 class="font-bold uppercase text-sm">Contato</h2><p class="text-gray-500 text-xs">Fale Conosco</p></div>
+
+                </button>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ========================================= -->
+
+    <!-- A CASP                                    -->
+
+    <!-- ========================================= -->
+
+     
+
+    <div id="a-casp" class="page bg-white">
+
+        <header class="p-6 border-b border-gray-100">
+
+            <h2 class="font-extrabold uppercase text-[#003366]">Nossa História</h2>
+
+        </header>
+
+        <main class="max-w-4xl w-full mx-auto p-10 flex-1 overflow-y-auto">
+
+            <div class="space-y-6 text-gray-700 leading-relaxed text-lg mb-10 text-justify">
+
+                <p>A <strong>CASP</strong> foi fundada em 1936 e, desde então, atua no agronegócio, com forte presença nos segmentos de Proteína Animal e Armazenagem de Grãos.
+ 
+A empresa investe continuamente em tecnologia e na geração de conhecimento, buscando atender de forma eficiente às demandas do mercado.
+ 
+Sua sede está localizada em Amparo, no interior de São Paulo, onde também se encontram o Centro de Pesquisa e Desenvolvimento e a unidade de produção de equipamentos.</p>
+
+            </div>
+
+            <img src="fachada.png" alt="Fachada CASP" class="w-full rounded-3xl shadow-2xl mb-12">
+
+            <button onclick="navigateTo('home')" class="w-full py-5 bg-[#003366] text-white font-bold rounded-2xl uppercase tracking-widest text-sm active:bg-orange-500">Voltar ao Menu Principal</button>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ========================================= -->
+
+    <!-- CATÁLOGOS                                 -->
+
+    <!-- ========================================= -->
+
+
+
+    <div id="Catalogos" class="page bg-white">
+
+        <header class="p-6 border-b border-gray-100">
+
+            <h2 class="font-extrabold uppercase text-[#003366]">Catálogos da Armazenagem</h2>
+
+        </header>
+
+        <main class="max-w-6xl w-full mx-auto p-10 flex flex-col flex-1">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+
+                <button onclick="navigateTo('sub-silos')" class="card-menu flex flex-col overflow-hidden text-left border border-gray-100">
+
+                    <img src="SILO.png" class="w-full h-60 object-cover" alt="Silos">
+
+                    <div class="p-4"><h2 class="font-bold uppercase text-xs text-[#003366]">Página 1</h2></div>
+
+                </button>
+
+
+
+                <button onclick="navigateTo('sub-secagem')" class="card-menu flex flex-col overflow-hidden text-left border border-gray-100">
+
+                    <img src="SECADOR.jpg" class="w-full h-60 object-cover" alt="Secagem">
+
+                    <div class="p-4"><h2 class="font-bold uppercase text-xs text-[#003366]">Página 2</h2></div>
+
+                </button>
+
+
+
+                <button onclick="navigateTo('sub-transportadores')" class="card-menu flex flex-col overflow-hidden text-left border border-gray-100">
+
+                    <img src="CORRENTE.jpg" class="w-full h-60 object-cover" alt="Transportadores">
+
+                    <div class="p-4"><h2 class="font-bold uppercase text-xs text-[#003366]">Página 3</h2></div>
+
+                </button>
+
+            </div>
+
+            <button onclick="navigateTo('home')" class="w-full py-5 bg-[#003366] text-white font-bold rounded-2xl uppercase tracking-widest text-sm active:bg-orange-500">Voltar ao Menu Principal</button>
+
+        </main>
+
+    </div>
+
+
+    <!-- ========================================= -->
+
+    <!-- SUBPÁGINA SILOS                           -->
+
+    <!-- ========================================= -->
+
+
+
+    <div id="sub-silos" class="page bg-white">
+
+        <header class="p-6 border-b border-gray-100">
+
+            <h2 class="font-extrabold uppercase text-[#003366]">Silos</h2>
+
+        </header>
+
+        <main class="max-w-4xl w-full mx-auto p-10 flex-1 overflow-y-auto">
+
+            <img src="PÁG 02.png" class="rounded-3xl w-full mb-8 shadow-lg" alt="Catálogo Silos">
+
+            <button onclick="navigateTo('Catalogos')" class="w-full py-5 bg-[#003366] text-white font-bold rounded-2xl uppercase text-sm">Voltar para Produtos</button>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ========================================= -->
+
+    <!-- SUBPÁGINA SECAGEM                         -->
+
+    <!-- ========================================= -->
+
+
+
+    <div id="sub-secagem" class="page bg-white">
+
+        <header class="p-6 border-b border-gray-100">
+
+            <h2 class="font-extrabold uppercase text-[#003366]">Secagem</h2>
+
+        </header>
+
+        <main class="max-w-4xl w-full mx-auto p-10 flex-1 overflow-y-auto">
+
+            <img src="Prancheta 2.png" class="rounded-3xl w-full mb-8 shadow-lg" alt="Catálogo Secagem">
+
+            <button onclick="navigateTo('Catalogos')" class="w-full py-5 bg-[#003366] text-white font-bold rounded-2xl uppercase text-sm">Voltar para Produtos</button>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ========================================= -->
+
+    <!-- SUBPÁGINA TRANSPORTADORES                 -->
+
+    <!-- ========================================= -->
+
+
+
+    <div id="sub-transportadores" class="page bg-white">
+
+        <header class="p-6 border-b border-gray-100">
+
+            <h2 class="font-extrabold uppercase text-[#003366]">Transportadores</h2>
+
+        </header>
+
+        <main class="max-w-4xl w-full mx-auto p-10 flex-1 overflow-y-auto">
+
+            <img src="Prancheta 1.png" class="rounded-3xl w-full mb-8 shadow-lg" alt="Catálogo Transportadores">
+
+            <button onclick="navigateTo('Catalogos')" class="w-full py-5 bg-[#003366] text-white font-bold rounded-2xl uppercase text-sm">Voltar para Produtos</button>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ========================================= -->
+
+    <!-- CONTATO                                   -->
+
+    <!-- ========================================= -->
+
+
+<div id="contato" class="page bg-white h-screen overflow-hidden flex flex-col">
+        <header class="p-6 border-b border-gray-100 flex-none bg-white">
+            <h2 class="font-extrabold uppercase text-[#003366] tracking-widest text-center">Canais de Contato</h2>
+        </header>
+
+        <main class="flex-1 flex items-center justify-center p-4 bg-gray-50/30 overflow-hidden">
+            <div class="h-full w-full max-w-2xl bg-white rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden flex items-center justify-center">
+                <img src="CONTATO.png" alt="Nossas Redes Sociais" class="max-w-full max-h-full object-contain">
+            </div>
+        </main>
+
+        <div class="p-6 flex-none bg-white border-t border-gray-100">
+            <button onclick="navigateTo('home')" class="w-full py-6 bg-[#003366] text-white font-bold rounded-2xl uppercase tracking-widest text-sm shadow-md active:opacity-90 flex items-center justify-center">
+                <i data-lucide="home" class="mr-3 w-5 h-5"></i>
+                Voltar ao Menu Principal
+            </button>
+        </div>
+    </div>
+
+
+
+    <!-- ========================================= -->
+
+    <!-- LANÇAMENTOS                               -->
+
+    <!-- ========================================= -->
+
+
+
+     <div id="lancamentos" class="page bg-white h-screen overflow-hidden">
+
+        <header class="p-4 border-b border-gray-100 bg-white flex-none">
+
+            <div class="flex items-center space-x-4">
+
+                <img src="selo90anos.png" alt="90 Anos" class="h-10 w-auto">
+
+                <h2 class="font-bold uppercase text-[#003366] text-xs tracking-widest">Lançamento Tecnológico</h2>
+
+            </div>
+
+        </header>
+
+
+
+        <main class="flex-1 flex flex-col items-center p-6 bg-gray-50/50 overflow-hidden">
+
+            <div class="max-w-6xl w-full bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row flex-1 border border-gray-100">
+
+                <div class="md:w-1/2 bg-[#003366] flex items-center justify-center p-12">
+
+                    <img src="LANÇAMENTO.png" alt="CTE CASP" class="w-full h-full object-contain">
+
+                </div>
+
+                <div class="md:w-1/2 p-12 flex flex-col justify-center">
+
+                    <h3 class="text-3xl font-black text-[#003366] uppercase mb-4">Transportador CTE</h3>
+
+                    <p class="text-gray-500 text-sm mb-8">Inovação e eficiência no transporte de grãos.</p>
+
+                   
+
+                    <button onclick="navigateTo('lancamento-specs')" class="flex items-center justify-center w-full py-5 border-2 border-[#003366] text-[#003366] font-bold rounded-2xl uppercase text-xs hover:bg-[#003366] hover:text-white transition-all">
+
+                        <i data-lucide="list-checks" class="mr-3 w-5 h-5"></i> Ver Especificações Técnicas
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="w-full pt-6 flex-none">
+
+                <button onclick="navigateTo('home')" class="w-full py-5 bg-[#003366] text-white font-bold rounded-2xl uppercase text-sm shadow-md flex items-center justify-center">
+
+                    <i data-lucide="home" class="mr-2 w-4 h-4 text-white"></i> Voltar ao Menu Principal
+
+                </button>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- LANCAMENTOS ESPECIFICAÇÕES -->
+
+
+
+    <div id="lancamento-specs" class="page bg-white h-screen overflow-hidden flex flex-col">
+
+   
+
+    <header class="p-4 border-b border-gray-100 bg-white flex-none">
+
+        <div class="flex items-center space-x-4">
+
+            <img src="selo90anos.png" alt="90 Anos" class="h-10 w-auto">
+
+            <h2 class="font-bold uppercase text-[#003366] text-xs tracking-widest">Especificações Técnicas</h2>
+
+        </div>
+
+    </header>
+
+
+
+    <main class="flex-1 flex flex-col bg-gray-50/30 overflow-hidden p-4">
+
+       
+
+        <div class="flex-1 w-full bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden flex items-center justify-center">
+
+            <img src="caractec.png" alt="Especificações" class="max-w-full max-h-full object-contain">
+
+        </div>
+
+       
+
+        <div class="flex-none pt-4">
+
+            <button onclick="navigateTo('lancamentos')" class="w-full py-5 bg-[#003366] text-white font-bold rounded-2xl uppercase tracking-widest text-sm shadow-md active:scale-95 flex items-center justify-center">
+
+                <i data-lucide="arrow-left" class="mr-3 w-5 h-5"></i>
+
+                Voltar ao Produto
+
+            </button>
+
+        </div>
+
+
+    <!-- ========================================= -->
+
+    <!-- SCRIPT / NAVEGAÇÃO                        -->
+
+    <!-- ========================================= -->
+
+
+
+    <script>
+
+        function renderIcons() {
+
+            if (window.lucide) {
+
+                lucide.createIcons();
+
+            }
+
+        }
+
+
+
+        function navigateTo(id) {
+
+            const allPages = document.querySelectorAll('.page');
+
+            allPages.forEach(page => page.classList.remove('active'));
+
+
+
+            const target = document.getElementById(id);
+
+
+
+            if (target) {
+
+                target.classList.add('active');
+
+                window.scrollTo(0, 0);
+
+                renderIcons();
+
+            } else {
+
+                console.error('Página não encontrada:', id);
+
+            }
+
+        }
+
+
+
+        window.navigateTo = navigateTo;
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            renderIcons();
+
+
+
+            const btnLancamentoSpecs = document.getElementById('btn-lancamento-specs');
+
+            if (btnLancamentoSpecs) {
+
+                btnLancamentoSpecs.addEventListener('click', function (event) {
+
+                    event.preventDefault();
+
+                    navigateTo('lancamento-specs');
+
+                });
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
