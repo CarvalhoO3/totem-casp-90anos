@@ -522,76 +522,46 @@ Sua sede está localizada em Amparo, no interior de São Paulo, onde também se 
 
 
     <script>
+  function renderIcons() {
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  }
 
-        function renderIcons() {
+  function navigateTo(id) {
+    const pages = document.querySelectorAll('.page');
 
-            if (window.lucide) {
+    // Esconde TODAS as páginas de forma forçada
+    pages.forEach(page => {
+      page.classList.remove('active');
+      page.style.display = 'none';
+    });
 
-                lucide.createIcons();
+    const target = document.getElementById(id);
 
-            }
+    if (!target) {
+      console.error('Página não encontrada:', id);
+      return;
+    }
 
-        }
+    // Força repaint do navegador (evita bug visual)
+    void target.offsetHeight;
 
+    // Mostra SOMENTE a página correta
+    target.style.display = 'flex';
+    target.classList.add('active');
 
+    window.scrollTo(0, 0);
+    renderIcons();
+  }
 
-        function navigateTo(id) {
+  document.addEventListener('DOMContentLoaded', () => {
+    renderIcons();
 
-            const allPages = document.querySelectorAll('.page');
-
-            allPages.forEach(page => page.classList.remove('active'));
-
-
-
-            const target = document.getElementById(id);
-
-
-
-            if (target) {
-
-                target.classList.add('active');
-
-                window.scrollTo(0, 0);
-
-                renderIcons();
-
-            } else {
-
-                console.error('Página não encontrada:', id);
-
-            }
-
-        }
-
-
-
-        window.navigateTo = navigateTo;
-
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-
-            renderIcons();
-
-
-
-            const btnLancamentoSpecs = document.getElementById('btn-lancamento-specs');
-
-            if (btnLancamentoSpecs) {
-
-                btnLancamentoSpecs.addEventListener('click', function (event) {
-
-                    event.preventDefault();
-
-                    navigateTo('lancamento-specs');
-
-                });
-
-            }
-
-        });
-
-    </script>
+    // garante que só a HOME apareça ao iniciar
+    navigateTo('home');
+  });
+</script>
 
 </body>
 
